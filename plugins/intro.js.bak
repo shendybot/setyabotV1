@@ -1,0 +1,26 @@
+const fetch = require('node-fetch')
+let handler = async(m, { conn, text, usedPrefix, command }) => {
+let pp = await conn.profilePictureUrl(m.chat).catch(_ => null)
+
+let tag = `@${m.sender.replace(/@.+/, '')}`
+let mentionedJid = [m.sender]
+let isi =` *ʙᴏᴛ* *ʙᴜɪʟᴅ-ᴏᴘᴇʀᴀᴛᴇ-ᴛʀᴀɴsғᴇʀ* _ᴀᴅᴀʟᴀʜ ᴘʀᴏɢʀᴀᴍ ᴋᴏᴍᴘᴜᴛᴇʀ ʏᴀɴɢ ᴅɪᴊᴀʟᴀɴᴋᴀɴ ᴅɪ ᴡʜᴀᴛsᴀᴘᴘ ʏᴀɴɢ ᴋʜᴜsᴜs ᴅɪʙᴜᴀᴛ ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴋᴇʀᴊᴀᴀɴ-ᴘᴇᴋᴇʀᴊᴀᴀɴ ᴏᴛᴏᴍᴀᴛɪs, ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ᴅɪʀᴀɴᴄᴀɴɢ sᴇᴅᴇᴍɪᴋɪᴀɴ ʀᴜᴘᴀ sᴇʜɪɴɢɢᴀ ᴅᴀᴘᴀᴛ ᴅɪɢᴜɴᴀᴋᴀɴ ᴅᴇɴɢᴀɴ ɴʏᴀᴍᴀɴ, ᴅᴀɴ ᴋᴇᴍᴜɴɢᴋɪɴᴀɴ ᴍᴇᴍɪʟɪᴋɪ sᴇᴅɪᴋɪᴛ ʙᴜɢ, ᴀᴅᴀɴʏᴀ ғɪᴛᴜʀ ᴅᴀʀɪ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ɪɴɪ ᴛᴇɴᴛᴜ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴜɴᴛᴜᴋ ʙᴇʀsᴇɴᴀɴɢ sᴇɴᴀɴɢ, ᴅʟʟ_`
+
+let wibu = `https://telegra.ph/file/d8b112bb7ebc8330d8cfd.jpg`
+let thumb = await(await fetch(wibu)).buffer()
+conn.sendButtonDoc(m.chat, isi, wm,'MENU','.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: "https://facebook.com/sadtime098",
+    mediaType: "VIDEO",
+    description: "https://instagram.com/shendyeditz?igshid=YmMyMTA2M2Y=", 
+    title: 'Iɴᴛʀᴏᴄᴀᴅᴜᴛɪᴏɴ',
+    body: wm,
+    thumbnail: thumb,
+    sourceUrl: urlnya
+  }
+  } }) 
+          }
+handler.help = ['intro']
+handler.tags = ['info']
+handler.command = /^(intro)$/i
+
+module.exports = handler

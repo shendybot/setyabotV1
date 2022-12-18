@@ -1,0 +1,33 @@
+const fs = require('fs')
+const fetch = require('node-fetch')
+let handler = async(m, { conn, text, usedPrefix, command }) => {
+let own = `https://wa.me/6283861760785`
+  let mentionedJid = [m.sender]
+let pp = await conn.profilePictureUrl(m.chat).catch(_ => null)
+let suka = `Saya 𝚂𝚑𝚎𝚗𝚍𝚢 𝙶𝚊𝚗𝚜`
+global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': suka, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${suka},;;;\nFN:${suka},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
+
+let tag = `@${m.sender.replace(/@.+/, '')}`
+let str = `*Hai ${tag}*`
+let isi =`\n*𝚂𝚎𝚝𝚢𝚊 𝙱𝚘𝚝* _ᴀᴅᴀʟᴀʜ ᴘʀᴏɢʀᴀᴍ ᴋᴏᴍᴘᴜᴛᴇʀ ʏᴀɴɢ ᴅɪᴊᴀʟᴀɴᴋᴀɴ ᴅɪ ᴡʜᴀᴛsᴀᴘᴘ ʏᴀɴɢ ᴋʜᴜsᴜs ᴅɪʙᴜᴀᴛ ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴋᴇʀᴊᴀᴀɴ-ᴘᴇᴋᴇʀᴊᴀᴀɴ ᴏᴛᴏᴍᴀᴛɪs_, *𝚂𝚎𝚝𝚢𝚊 𝙱𝚘𝚝* _ᴅɪʀᴀɴᴄᴀɴɢ sᴇᴅᴇᴍɪᴋɪᴀɴ ʀᴜᴘᴀ sᴇʜɪɴɢɢᴀ ᴅᴀᴘᴀᴛ ᴅɪɢᴜɴᴀᴋᴀɴ ᴅᴇɴɢᴀɴ ɴʏᴀᴍᴀɴ, ᴅᴀɴ ᴋᴇᴍᴜɴɢᴋɪɴᴀɴ ᴍᴇᴍɪʟɪᴋɪ sᴇᴅɪᴋɪᴛ ʙᴜɢ, ᴀᴅᴀɴʏᴀ ғɪᴛᴜʀ ᴅᴀʀɪ *𝚂𝚎𝚝𝚢𝚊 𝙱𝚘𝚝* ɪɴɪ ᴛᴇɴᴛᴜ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴜɴᴛᴜᴋ ʙᴇʀsᴇɴᴀɴɢ sᴇɴᴀɴɢ, ᴅʟʟ_\n𝙺𝚊𝚕𝚊𝚞 𝙰𝚍𝚊 𝚈𝚐 𝙴𝚛𝚛𝚘𝚛 𝙱𝚒𝚜𝚊 𝙻𝚊𝚗𝚐𝚜𝚞𝚗𝚐 𝚁𝚎𝚙𝚘𝚛𝚝 𝙺𝚎 𝙾𝚠𝚗𝚎𝚛.\n${own} (𝙾𝚠𝚗𝚎𝚛)\n`
+
+let wibu = `https://api-reysekha.herokuapp.com/api/random/cosplay?apikey=apirey` 
+let thumb = await(await fetch(wibu)).buffer()
+conn.send3ButtonImg(m.chat, `https://telegra.ph/file/d8b112bb7ebc8330d8cfd.jpg`, str, isi, 'List Menu', '.command', 'Owner', '.owner', 'Donasi', '.donasi', m, { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: 'https://instagram.com/shendyeditz?igshid=YmMyMTA2M2Y=',
+    mediaType: 2, 
+    description: urlnya,
+    title: "⫹⫺ WhatsApp Bot | By 𝚂𝚑𝚎𝚗𝚍𝚢 𝙶𝚊𝚗𝚜",
+    body: wm,
+    thumbnail: thumb,
+    sourceUrl: 'https://instagram.com/shendyeditz?igshid=YmMyMTA2M2Y='
+     }}
+  })
+          }
+handler.help = ['menu']
+handler.tags = ['main']
+handler.command =  /^(menu)$/i
+
+handler.register = true
+
+module.exports = handler

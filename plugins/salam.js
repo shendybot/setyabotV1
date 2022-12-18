@@ -1,0 +1,29 @@
+let fs = require('fs')
+const { MessageType } = require('@adiwajshing/baileys')
+let handler = async (m, { conn }) => {
+let salam = fs.readFileSync('./mp3/salam') 
+await conn.sendFile(m.chat, salam, 'error.mp3', null, fkontak, true, {
+type: 'audioMessage', 
+ptt: false, seconds: 9999999,contextInfo: {
+         externalAdReply: { showAdAttribution: true,
+ mediaUrl: 'https://chat.whatsapp.com/FAYTO7MzpNrJ8HDyexBZvb',
+    mediaType: 2, 
+    description: urlnya,
+    title: "Biasakan Salam",
+    body: wm,
+    thumbnail: await (await fetch('https://telegra.ph/file/e74bd57566d12e29a907d.jpg')).buffer(),
+    sourceUrl: 'https://chat.whatsapp.com/FAYTO7MzpNrJ8HDyexBZvb',
+  }
+  } })
+}
+
+handler.customPrefix = /^(assalamualaikum|p|halo)$/i
+handler.command = new RegExp
+
+handler.limit = true
+handler.mods = false 
+handler.premium = false
+handler.group = false
+handler.private = false
+
+module.exports = handler

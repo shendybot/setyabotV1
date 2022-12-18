@@ -1,0 +1,34 @@
+let fs = require('fs')
+const { MessageType } = require('@adiwajshing/baileys')
+let handler = async (m, { conn }) => {
+let ihhomkasar = fs.readFileSync('./mp3/apaan')
+let audio = `https://raw.githubusercontent.com/Aisyah-Aldi/Sound/main/${command}.mp3`
+await conn.sendFile(m.chat, ihhomkasar, 'error.mp3', null, fkontak, true, {
+type: 'audioMessage', 
+ptt: false, seconds: 9999999,contextInfo: {
+         externalAdReply: { showAdAttribution: true,
+ mediaUrl: 'https://chat.whatsapp.com/FAYTO7MzpNrJ8HDyexBZvb',
+    mediaType: 2, 
+    description: urlnya,
+    title: "*Jangan ngomong Kasar kak*",
+    body: wm,
+    thumbnail: await (await fetch('https://telegra.ph/file/e74bd57566d12e29a907d.jpg')).buffer(),
+    sourceUrl: 'https://chat.whatsapp.com/FAYTO7MzpNrJ8HDyexBZvb',
+  }
+  } })
+}
+
+//conn.sendMessage(m.chat, helloaine, MessageType.audio, {quoted: m, mimetype: 'audio/mp4', ptt:true})
+// await conn.sendMessage(m.chat, { audio: { url: helloaine }, mimetype: 'audio/mp4'}, m)
+}
+
+handler.customPrefix = /^(kontol|bgst|kntl|pepek|mmk|ppk|jnck|anj|bangsat|bangsad|bgsd|ngntd|memek|jembut|jancok|fuck|ajg|anjing|ngentod)$/i
+handler.command = new RegExp
+
+handler.limit = false
+handler.mods = false 
+handler.premium = false
+handler.group = false
+handler.private = false
+
+module.exports = handler
