@@ -17,7 +17,7 @@ let str =` Halo kak ${tag}⁩ Itu nomor owner ku
 `
 let wibu = `https://telegra.ph/file/d8b112bb7ebc8330d8cfd.jpg`
 let thumb = await(await fetch(wibu)).buffer()
-conn.sendButtonDoc(m.chat, str, wm, 'Menu','.menu2', m, { contextInfo: { externalAdReply: { showAdAttribution: true,containsAutoReply: true,
+conn.sendButtonDoc(m.chat, str, wm, 'Menu','.menu', m, { contextInfo: { externalAdReply: { showAdAttribution: true,containsAutoReply: true,
     mediaUrl: "https://facebook.com/sadtime098",
     mediaType: "VIDEO",
     description: "https://instagram.com/shendyeditz?igshid=YmMyMTA2M2Y=", 
